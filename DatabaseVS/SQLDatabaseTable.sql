@@ -5,57 +5,58 @@ DROP TABLE IF EXISTS Customer_Info;
 
 
 CREATE TABLE Customer_Info(
-Customer_ID INT NOT NULL,
 First_name TEXT NOT NULL,
 Last_name TEXT NOT NULL,
+Customer_ID INT NOT NULL,
 Phone_number TEXT NOT NULL,
 Adress TEXT NOT NULL,
 PRIMARY KEY (Customer_ID),
 );
 
 CREATE TABLE Movie_store(
-Movie_ID INT NOT NULL,
 Customer_ID INT NOT NULL,
 Date_of_rent TEXT NOT NULL,
+Movie_ID INT NOT NULL,
 Movie_price_kr INT NOT NULL,
 PRIMARY KEY (Movie_ID),
 FOREIGN KEY (Customer_ID) REFERENCES Customer_Info(Customer_ID)
 );
 
 CREATE TABLE Movie(
-Movie_ID INT NOT NULL,
-Movie_release_year INT NOT NULL,
 Movie_name TEXT NOT NULL,
 Movie_director TEXT NOT NULL,
+Movie_release_year INT NOT NULL,
+Movie_score DECIMAL (2,1) NOT NULL,
+Movie_ID INT NOT NULL,
 FOREIGN KEY (Movie_ID) REFERENCES Movie_store(Movie_ID)
 );
 
 
-INSERT INTO Customer_Info(Customer_ID, First_name, Last_name, Phone_number, Adress)
-VALUES(1, 'John', 'Doe', '073-3245xxx', 'DoeStreet'),
-(2, 'Sara', 'Nilsson', '072-5125xxx', 'JallaJallaGatan'),
-(3, 'Stefan', 'Karlsson', '073-5644xxx', 'Engata'),
-(4, 'Karl', 'lrak', '073-1245xxx', 'GatanUpp'),
-(5, 'Amanda', 'Koea', '072-6543xxx', 'Fågel'),
-(6, 'Johan', 'Schee', '076-7654xxx', 'Fiskstället'),
-(7, 'Ettnamn', 'Efternamn', '076-6433xxx', 'Borövergången'),
-(8, 'Ettannatnamn', 'Intedu', '071-1534xxx', 'shalom');
+INSERT INTO Customer_Info(First_name, Last_name, Customer_ID, Phone_number, Adress)
+VALUES('John', 'Doe', 1 , '073-3245xxx', 'DoeStreet'),
+('Sara', 'Nilsson', 2,  '072-5125xxx', 'JallaJallaGatan'),
+('Stefan', 'Karlsson', 3, '073-5644xxx', 'Engata'),
+('Karl', 'lrak', 4, '073-1245xxx', 'GatanUpp'),
+('Amanda', 'Koea', 5,'072-6543xxx', 'Fågel'),
+('Johan', 'Schee', 6, '076-7654xxx', 'Fiskstället'),
+('Ettnamn', 'Efternamn', 7, '076-6433xxx', 'Borövergången'),
+('Ettannatnamn', 'Intedu', 8, '071-1534xxx', 'shalom');
 
 
-INSERT INTO Movie_store(Movie_ID, Customer_ID, Date_of_rent, Movie_price_kr) 
-VALUES(1, 1, '21/07-2020', 341),
-(2, 1,	'01/01-2020', 247),
-(3, 2,  '05/02-2020', 407),
-(4, 3,	'05/10-2020', 164),
-(5, 4,	'30/12-2020', 413),
-(6, 6,	'24/7-2020', 304);
+INSERT INTO Movie_store(Customer_ID, Date_of_rent,Movie_ID,Movie_price_kr) 
+VALUES(1, '21/07-2020', 1, 341),
+(1,	'01/01-2020', 2, 247),
+(2,  '05/02-2020', 3, 407),
+(3,	'05/10-2020', 4, 164),
+(4,	'30/12-2020', 5, 413),
+(6,	'24/7-2020', 6, 304);
 
 
-INSERT INTO Movie (Movie_ID, Movie_release_year, Movie_name, Movie_director) 
-VALUES(1, 2001, 'The Lord of the Rings: The Fellowship of the Ring', 'Peter Jackson'),
-(2, 2016, 'Vaiana', 'Ron Clements'),
-(3, 1995, 'The Shawshank Redemption', 'Frank Darabont'),
-(4, 2001, 'Spy Kids 1', 'Robert Rodríguez'),
-(5, 1998, 'Titanic', 'James Cameron'),
-(6, 2006, 'Mission: Impossible III', 'J.J. Abrams');
+INSERT INTO Movie (Movie_name, Movie_director, Movie_release_year, Movie_ID, Movie_score) 
+VALUES('The Lord of the Rings: The Fellowship of the Ring', 'Peter Jackson', 2001, 1, 8.8),
+('Vaiana', 'Ron Clements', 2016, 2, 7.6),
+('The Shawshank Redemption', 'Frank Darabont', 1995, 3, 9.3),
+('Spy Kids 1', 'Robert Rodríguez', 2001, 4, 5.5),
+('Titanic', 'James Cameron', 1998, 5, 7.8),
+('Mission: Impossible III', 'J.J. Abrams', 2006, 6, 6.9 );
 
