@@ -14,7 +14,6 @@ PRIMARY KEY (Customer_ID),
 CREATE TABLE Movie_store(
 Movie_ID INT NOT NULL,
 Customer_ID INT NOT NULL,
-Movie_name TEXT NOT NULL,
 Date_of_rent TEXT NOT NULL,
 Movie_price_kr INT NOT NULL,
 PRIMARY KEY (Movie_ID),
@@ -37,13 +36,13 @@ VALUES(1, 2001, 'The Lord of the Rings: The Fellowship of the Ring', 'Peter Jack
 (5, 1998, 'Titanic', 'James Cameron'),
 (6, 2006, 'Mission: Impossible III', 'J.J. Abrams');
 
-INSERT INTO Movie_store(Movie_ID, Customer_ID, Movie_name, Date_of_rent, Movie_price_kr) 
-VALUES(1, 1, 'The Lord of the Rings: The Fellowship of the Ring', '21/07-2020', 341),
-(2, 1, 'Vaiana', '01/01-2020', 247),
-(3, 2, 'The Shawshank Redemption', '05/02-2020', 407),
-(4, 3,'Spy Kids 1', '05/10-2020', 164),
-(5, 4,'Titanic', '30/12-2020', 413),
-(6, 6,'Mission: Impossible III', '24/7-2020', 304);
+INSERT INTO Movie_store(Movie_ID, Customer_ID, Date_of_rent, Movie_price_kr) 
+VALUES(1, 1, '21/07-2020', 341),
+(2, 1,	'01/01-2020', 247),
+(3, 2,  '05/02-2020', 407),
+(4, 3,	'05/10-2020', 164),
+(5, 4,	'30/12-2020', 413),
+(6, 6,	'24/7-2020', 304);
 
 INSERT INTO Customer_Info(Customer_ID, First_name, Last_name, Phone_number, Adress)
 VALUES(1, 'John', 'Doe', '073-3245xxx', 'DoeStreet'),
