@@ -1,5 +1,5 @@
 ﻿DROP TABLE IF EXISTS Movie;
-DROP TABLE IF EXISTS Movie_store;
+DROP TABLE IF EXISTS Rental_shop;
 DROP TABLE IF EXISTS Customer_Info;
 
 
@@ -13,7 +13,7 @@ Adress TEXT NOT NULL,
 PRIMARY KEY (Customer_ID),
 );
 
-CREATE TABLE Movie_store(
+CREATE TABLE Rental_shop(
 Customer_ID INT NOT NULL,
 Date_of_rent TEXT NOT NULL,
 Movie_ID INT NOT NULL,
@@ -28,13 +28,14 @@ Movie_director TEXT NOT NULL,
 Movie_release_year INT NOT NULL,
 Movie_score DECIMAL (2,1) NOT NULL,
 Movie_ID INT NOT NULL,
-FOREIGN KEY (Movie_ID) REFERENCES Movie_store(Movie_ID)
+PRIMARY KEY (Movie_ID),
+FOREIGN KEY (Movie_ID) REFERENCES Rental_shop(Movie_ID)
 );
 
 
 INSERT INTO Customer_Info(First_name, Last_name, Customer_ID, Phone_number, Adress)
-VALUES('John', 'Doe', 1 , '073-3245xxx', 'DoeStreet'),
-('Sara', 'Nilsson', 2,  '072-5125xxx', 'JallaJallaGatan'),
+VALUES('John', 'Doe', 1, '073-3245xxx', 'DoeStreet'),
+('Sara', 'Nilsson', 2, '072-5125xxx', 'JallaJallaGatan'),
 ('Stefan', 'Karlsson', 3, '073-5644xxx', 'Engata'),
 ('Karl', 'lrak', 4, '073-1245xxx', 'GatanUpp'),
 ('Amanda', 'Koea', 5,'072-6543xxx', 'Fågel'),
@@ -43,7 +44,7 @@ VALUES('John', 'Doe', 1 , '073-3245xxx', 'DoeStreet'),
 ('Ettannatnamn', 'Intedu', 8, '071-1534xxx', 'shalom');
 
 
-INSERT INTO Movie_store(Customer_ID, Date_of_rent,Movie_ID,Movie_price_kr) 
+INSERT INTO Rental_shop(Customer_ID, Date_of_rent,Movie_ID,Movie_price_kr) 
 VALUES(1, '21/07-2020', 1, 341),
 (1,	'01/01-2020', 2, 247),
 (2,  '05/02-2020', 3, 407),
