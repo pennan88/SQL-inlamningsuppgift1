@@ -1,6 +1,8 @@
-﻿DROP TABLE IF EXISTS Customer_Info;
+﻿DROP TABLE IF EXISTS Movie;
 DROP TABLE IF EXISTS Movie_store;
-DROP TABLE IF EXISTS Movie;
+DROP TABLE IF EXISTS Customer_Info;
+
+
 
 CREATE TABLE Customer_Info(
 Customer_ID INT NOT NULL,
@@ -28,21 +30,6 @@ Movie_director TEXT NOT NULL,
 FOREIGN KEY (Movie_ID) REFERENCES Movie_store(Movie_ID)
 );
 
-INSERT INTO Movie (Movie_ID, Movie_release_year, Movie_name, Movie_director) 
-VALUES(1, 2001, 'The Lord of the Rings: The Fellowship of the Ring', 'Peter Jackson'),
-(2, 2016, 'Vaiana', 'Ron Clements'),
-(3, 1995, 'The Shawshank Redemption', 'Frank Darabont'),
-(4, 2001, 'Spy Kids 1', 'Robert Rodríguez'),
-(5, 1998, 'Titanic', 'James Cameron'),
-(6, 2006, 'Mission: Impossible III', 'J.J. Abrams');
-
-INSERT INTO Movie_store(Movie_ID, Customer_ID, Date_of_rent, Movie_price_kr) 
-VALUES(1, 1, '21/07-2020', 341),
-(2, 1,	'01/01-2020', 247),
-(3, 2,  '05/02-2020', 407),
-(4, 3,	'05/10-2020', 164),
-(5, 4,	'30/12-2020', 413),
-(6, 6,	'24/7-2020', 304);
 
 INSERT INTO Customer_Info(Customer_ID, First_name, Last_name, Phone_number, Adress)
 VALUES(1, 'John', 'Doe', '073-3245xxx', 'DoeStreet'),
@@ -53,3 +40,22 @@ VALUES(1, 'John', 'Doe', '073-3245xxx', 'DoeStreet'),
 (6, 'Johan', 'Schee', '076-7654xxx', 'Fiskstället'),
 (7, 'Ettnamn', 'Efternamn', '076-6433xxx', 'Borövergången'),
 (8, 'Ettannatnamn', 'Intedu', '071-1534xxx', 'shalom');
+
+
+INSERT INTO Movie_store(Movie_ID, Customer_ID, Date_of_rent, Movie_price_kr) 
+VALUES(1, 1, '21/07-2020', 341),
+(2, 1,	'01/01-2020', 247),
+(3, 2,  '05/02-2020', 407),
+(4, 3,	'05/10-2020', 164),
+(5, 4,	'30/12-2020', 413),
+(6, 6,	'24/7-2020', 304);
+
+
+INSERT INTO Movie (Movie_ID, Movie_release_year, Movie_name, Movie_director) 
+VALUES(1, 2001, 'The Lord of the Rings: The Fellowship of the Ring', 'Peter Jackson'),
+(2, 2016, 'Vaiana', 'Ron Clements'),
+(3, 1995, 'The Shawshank Redemption', 'Frank Darabont'),
+(4, 2001, 'Spy Kids 1', 'Robert Rodríguez'),
+(5, 1998, 'Titanic', 'James Cameron'),
+(6, 2006, 'Mission: Impossible III', 'J.J. Abrams');
+
